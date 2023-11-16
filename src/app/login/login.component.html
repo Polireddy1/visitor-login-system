@@ -1,0 +1,75 @@
+<div class="tabs">
+    <button class="tab-button" [ngClass]="{'active': selectedForm === 'employee'}"
+        (click)="showForm('employee')">Employee</button>
+    <button class="tab-button" [ngClass]="{'active': selectedForm === 'admin'}"
+        (click)="showForm('admin')">Admin</button>
+    <button class="tab-button" [ngClass]="{'active': selectedForm === 'visitor'}"
+        (click)="showForm('visitor')">Visitor</button>
+</div>
+
+<div class="form-container">
+    <ng-container [ngSwitch]="selectedForm">
+
+        <!-- Employee Form -->
+        <form class="login-form" *ngSwitchCase="'employee'" [formGroup]="employeeForm"
+            (ngSubmit)="submitEmployeeForm()">
+            form1
+            <label for="employeeEmail">Email:</label>
+            <input type="email" id="employeeEmail" formControlName="employeeEmail" required>
+            <div class="warn" *ngIf="employeeForm.get('employeeEmail')?.hasError('required')">Email is required</div>
+            <div class="warn" *ngIf="employeeForm.get('employeeEmail')?.hasError('email')">Invalid email format</div>
+
+            <label for="employeePassword">Password:</label>
+            <input type="password" id="employeePassword" formControlName="employeePassword" required>
+            <div class="warn" *ngIf="employeeForm.get('employeePassword')?.hasError('required')">Password is required</div>
+
+            <button type="submit">Login</button>
+        </form>
+
+        <!-- Admin Form -->
+        <form class="login-form" *ngSwitchCase="'admin'" [formGroup]="adminForm" (ngSubmit)="submitAdminForm()">
+            form2
+            <label for="adminUsername">Username:</label>
+            <input type="text" id="adminUsername" formControlName="adminUsername" required>
+            <div class="warn" *ngIf="adminForm.get('adminUsername')?.hasError('required')">Username is required</div>
+
+            <label for="adminPassword">Password:</label>
+            <input type="password" id="adminPassword" formControlName="adminPassword" required>
+            <div class="warn" *ngIf="adminForm.get('adminPassword')?.hasError('required')">Password is required</div>
+
+            <button type="submit">Login</button>
+        </form>
+
+        <!-- Visitor Form -->
+        <form class="login-form" *ngSwitchCase="'visitor'" [formGroup]="visitorForm" (ngSubmit)="submitVisitorForm()">
+            form3
+            <label for="visitorFullName">Full Name:</label>
+            <input type="text" id="visitorFullName" formControlName="visitorFullName" required>
+            <div class="warn" *ngIf="visitorForm.get('visitorFullName')?.hasError('required')">Full Name is required</div>
+
+            <label for="visitorEmail">Email:</label>
+            <input type="email" id="visitorEmail" formControlName="visitorEmail" required>
+            <div class="warn" *ngIf="visitorForm.get('visitorEmail')?.hasError('required')">Email is required</div>
+            <div class="warn" *ngIf="visitorForm.get('visitorEmail')?.hasError('email')">Invalid email format</div>
+
+            <label for="visitorMobile">Mobile Number:</label>
+            <input type="text" id="visitorMobile" formControlName="visitorMobile" required>
+            <div class="warn" *ngIf="visitorForm.get('visitorMobile')?.hasError('required')">Mobile Number is required</div>
+
+            <label for="visitorPOC">Point of Contact:</label>
+            <input type="text" id="visitorPOC" formControlName="visitorPOC" required>
+            <div class="warn" *ngIf="visitorForm.get('visitorPOC')?.hasError('required')">Point of Contact is required</div>
+
+            <label for="visitorReason">Reason for Visit:</label>
+            <input type="text" id="visitorReason" formControlName="visitorReason" required>
+            <div class="warn" *ngIf="visitorForm.get('visitorReason')?.hasError('required')">Reason for Visit is required</div>
+
+            <label for="visitorPOCDesignation">POC Designation:</label>
+            <input type="text" id="visitorPOCDesignation" formControlName="visitorPOCDesignation" required>
+            <div class="warn" *ngIf="visitorForm.get('visitorPOCDesignation')?.hasError('required')">POC Designation is required
+            </div>
+
+            <button type="submit">Login</button>
+        </form>
+    </ng-container>
+</div>

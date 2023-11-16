@@ -1,0 +1,32 @@
+.tech-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .tech-card {
+    flex-basis: calc(50% - 20px); /* Adjust card width as needed */
+    margin: 10px;
+  }
+  
+  mat-card {
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 100%;
+  }
+  
+  mat-card-content {
+    padding: 20px;
+  }
+  
+  h3 {
+    font-size: 1.2rem;
+    color: #007BFF;
+    margin: 0;
+  }
+  
+  p {
+    font-size: 1rem;
+    color: #555;
+  }
+  

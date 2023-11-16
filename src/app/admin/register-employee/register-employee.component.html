@@ -1,0 +1,19 @@
+<div class="container">
+  <form class="sign-up-form" action="#">
+    <h1>Sign Up</h1>
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input [(ngModel)]="username" type="text" id="username" name="username" required />
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input [(ngModel)]="email" type="email" id="email" name="email" required />
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>                                                                                        
+      <input [(ngModel)]="password" type="password" id="password" name="password" required />
+    </div>
+    <button routerLink="/Login" (click)="registerUser()" type="submit">Sign Up</button>
+    <div #alert class="alert"></div> <!-- Add this alert element -->
+  </form>
+</div>
